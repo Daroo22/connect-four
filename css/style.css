@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+    background: linear-gradient(blue, white);
+}
+
+
+.board {
+    display:grid;
+    grid-template-columns: repeat(7, 50px);
+    grid-template-rows: repeat(6, 50px);
+    gap: 5px;
+    margin-top: 20px;
+    border: 3px solid black;
+    
+}
+
+.sqr {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+  }
+  
+
+.sqr:hover {
+    background-color: aqua;
+}
+
+#player1 {
+    font-size: medium;
+    padding: 5px;
+    text-align: left;
+    background-color: red;
+}
+
+#player2 {
+    font-size: medium;
+    background-color: yellow;
+}
+
+#restartButton {
+    text-align: end;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.prompts {
+    display: flex;
+    justify-content: space-between;
+    width: 392px;
+   padding: 0 20px 0 20px;
+}
+
+/* Add styles for red and yellow cells */
+.red {
+    background-color: red;
+  }
+  
+  .yellow {
+    background-color: yellow;
+  }
+  
+  
+/* used CSS tricks for multiple designs. 
