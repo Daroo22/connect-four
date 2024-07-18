@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const playFriendsButton = document.querySelector("#play-friends-button");
     const playAIButton = document.querySelector("#play-ai-button");
     const playerWinEl = document.querySelector(".playerWin")
-
+    const cellEls = boardEl.querySelectorAll('div')
     /*-------------------------------- Functions --------------------------------*/
     function init() {
         loadingScreen.style.display = 'flex';
@@ -60,6 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
             ["", "", "", "", "", "", ""],
             ["", "", "", "", "", "", ""]
         ];
+        cellEls.forEach(cell => {
+            cell.classList.remove('highlight')
+        }) 
         turn = "red";
         winner = false;
         tie = false;
@@ -87,6 +90,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // used chatGpt for function.
 
+    function reportWin(combo) {
+        for (let [rowNum, colNum] of combo) {
+            let cell = document.querySelector(`[data-cell="${rowNum}-${colNum}"]`);
+            if (cell) {
+                cell.classList.add("highlight");
+            }
+        }
+    }
+    // found function in Github
 
     function startGameAgainstAI() {
         loadingScreen.style.display = 'none';
@@ -166,6 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 board[a[0]][a[1]] === board[d[0]][d[1]]
             ) {
                 winner = true;
+
+                reportWin(combo)
                 return;
             }
         }
