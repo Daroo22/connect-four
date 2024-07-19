@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +8,38 @@
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/app.js"></script>
 </head>
+
 <body>
     <div id="loading-screen" class="loading-screen">
         <button id="play-friends-button">Play Against Friends</button>
         <button id="play-ai-button">Play Against AI</button>
-        <div id="instructions">Connect 4 Game Instructions
-           <ul> Objective: </ul>
+        <button id="how-to-play">How to play</button>
+        <div id="instructions" class="hidden">Connect 4 Game Instructions
+            <ul> Objective: </ul>
             <ul> - Be the first to connect four discs in a row (horizontally, vertically, or diagonally). </ul>
-            
-           <ul> Gameplay: </ul>
-           <ul> - Players take turns dropping red and yellow discs the grid. </ul>
-           <ul> - Click a column to drop your disc into the lowest available space. </ul>
-           <ul> - Alternate turns with your opponent. </ul>
-            
-           <ul> Winning: </ul>
-           <ul> - Connect four of your discs in a row to win. </ul>
-           <ul> - If the board fills without a winner, the game is a tie. </ul>
-            
-           <ul> Restarting: </ul>
-           <ul> - Click "Restart" to start a new game. </ul>
-            
-          <ul> Enjoy and strategize! </ul>
 
-          </div>
+            <ul> Gameplay: </ul>
+            <ul> - Players take turns dropping red and yellow discs the grid. </ul>
+            <ul> - Click a column to drop your disc into the lowest available space. </ul>
+            <ul> - Alternate turns with your opponent. </ul>
+
+            <ul> Winning: </ul>
+            <ul> - Connect four of your discs in a row to win. </ul>
+            <ul> - If the board fills without a winner, the game is a tie. </ul>
+
+            <ul> Restarting: </ul>
+            <ul> - Click "Restart" to start a new game. </ul>
+
+            <ul> Enjoy and strategize! </ul>
+
+        </div>
     </div>
     <h1>Connect 4</h1>
-    
+
     <h2 class="playerWin">PlayerWin-Tracker</h2>
     <h3 id="message"></h3>
     <section class="board">
-        
+
         <div class="sqr" data-cell="0-0"></div>
         <div class="sqr" data-cell="0-1"></div>
         <div class="sqr" data-cell="0-2"></div>
@@ -91,4 +94,5 @@
         <button id="player2">Player 2</button>
     </div>
 </body>
+
 </html>

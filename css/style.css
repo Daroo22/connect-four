@@ -5,7 +5,8 @@ body {
     align-items: center;
     background-image: url(/Assets/mountains-background-game-vector.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    height: 810px;
 
 }
 
@@ -87,6 +88,7 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     z-index: 1000;
+    background-size: 100% 100%;
     background-image: url(/Assets/Gamegang.png)
 }
 
@@ -104,11 +106,17 @@ body {
 }
 
 .highlight {
-    background-color: #000;
+    background-color: green;
 }
 
 ul {
     font-size: 21px;
- 
 
+  }
+
+  .hidden {
+    display: none;
+  }
+  #instructions {
+    background-color: rgb(88, 88, 84);
   }

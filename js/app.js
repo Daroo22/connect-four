@@ -49,8 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const playAIButton = document.querySelector("#play-ai-button");
     const playerWinEl = document.querySelector(".playerWin")
     const cellEls = boardEl.querySelectorAll('div')
+    //const loadingSound = new Audio('../Assets/loadingSound.mp3')
+    const audioPiece = new Audio('../Assets/audioPiece.mp3')
+    const gameOver = new Audio('../Assets/gameOver.mp3')
+    const howToPlay = document.querySelector('#how-to-play')
+    const instructions = document.querySelector('#instructions')
+  
     /*-------------------------------- Functions --------------------------------*/
     function init() {
+    
         loadingScreen.style.display = 'flex';
         board = [
             ["", "", "", "", "", "", ""],
@@ -60,6 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
             ["", "", "", "", "", "", ""],
             ["", "", "", "", "", "", ""]
         ];
+
+
         cellEls.forEach(cell => {
             cell.classList.remove('highlight')
         }) 
@@ -87,8 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function startGameAgainstFriends() {
         loadingScreen.style.display = 'none';
+        //loadingSound.play()
     }
-    // used chatGpt for function.
+
 
     function reportWin(combo) {
         for (let [rowNum, colNum] of combo) {
@@ -118,14 +128,18 @@ document.addEventListener("DOMContentLoaded", function () {
             const randomCol = availableColumns[Math.floor(Math.random() * availableColumns.length)];
             playPiece(randomCol);
             checkForWinner();
+        
             checkForTie();
             switchPlayerTurn();
             render();
         }
 
     }
+     // used chatGpt for function.
 
-
+   
+   
+   
     // Update the message display
     function updateMessage() {
         if (!winner && !tie) {
@@ -154,17 +168,20 @@ document.addEventListener("DOMContentLoaded", function () {
         if (winner) return;
         playPiece(colIndex);
         checkForWinner();
+        if(winner) gameOver.play()
         checkForTie();
         switchPlayerTurn();
         render();
     }
     // Place a piece in the chosen column
     function playPiece(colIndex) {
+        audioPiece.play()
         for (let rowIndex = board.length - 1; rowIndex >= 0; rowIndex--) {
             if (!board[rowIndex][colIndex]) {
                 board[rowIndex][colIndex] = turn;
                 break;
             }
+        
         }
     }
     // Check for a winner
@@ -182,7 +199,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 reportWin(combo)
                 return;
             }
-        }
+              
+        } 
     }
     // Check for a tie
     function checkForTie() {
@@ -201,6 +219,14 @@ document.addEventListener("DOMContentLoaded", function () {
     restartButton.addEventListener("click", init);
     playFriendsButton.addEventListener("click", startGameAgainstFriends);
     playAIButton.addEventListener("click", startGameAgainstAI);
+    document.addEventListener('DOMContentLoaded', loadingScreen);
+    howToPlay.addEventListener('click', (event)=>{
+        if (instructions.classList.contains('hidden')){
+            instructions.classList.remove('hidden')
+        } else {
+            instructions.classList.add('hidden')
+        }
+    })
 
     /*-------------------------------- Initialization --------------------------------*/
     init();
