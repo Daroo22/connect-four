@@ -17,3 +17,12 @@ Choose a color and then take turns dropping colored discs from the top into a se
 - Players practice logical reasoning by understanding the cause-and-effect relationships of their moves and predicting outcomes.
 
 - Playing with others enhances communication, turn-taking, and sportsmanship, fostering better social interactions.
+
+
+## Technologies Used
+
+- JavsScript
+- CSS
+- HTML
+- CSS Tricks
+- 
