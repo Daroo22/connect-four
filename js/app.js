@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const playAIButton = document.querySelector("#play-ai-button");
     const playerWinEl = document.querySelector(".playerWin")
     const cellEls = boardEl.querySelectorAll('div')
-    //const loadingSound = new Audio('../Assets/loadingSound.mp3')
+    const loadingSound = new Audio('../Assets/loadingSound.mp3')
     const audioPiece = new Audio('../Assets/audioPiece.mp3')
     const gameOver = new Audio('../Assets/gameOver.mp3')
     const howToPlay = document.querySelector('#how-to-play')
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function startGameAgainstFriends() {
         loadingScreen.style.display = 'none';
-        //loadingSound.play()
+        loadingSound.play()
     }
 
 
